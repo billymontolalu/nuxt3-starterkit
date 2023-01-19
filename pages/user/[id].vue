@@ -5,13 +5,13 @@ const user = reactive({ email: "", name: "", id: "" })
 user.email = data.value.data.email
 user.name = data.value.data.name
 user.id = data.value.data.id
-const save = async() => {
-    await useFetch("/api/user", { method: "PUT" })
+const save = async () => {
+    await useFetch("/api/user", { method: "PUT", body: user })
 }
 </script>
 <template>
     <h1>Edit</h1>
     <input v-model="user.email" />
     <input v-model="user.name" />
-    <button>Save</button>
+    <button @click="save">Save</button>
 </template>

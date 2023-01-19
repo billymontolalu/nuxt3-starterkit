@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const router = useRouter()
 const data = reactive({ email: "", name: "" })
 const save = async () => {
     console.log("save")
@@ -6,6 +7,7 @@ const save = async () => {
         method: "post",
         body: data
     })
+    router.push("/user")
 }
 </script>
 <template>
